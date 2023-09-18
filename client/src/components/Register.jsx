@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const Register = () => {
-  const [Username, setUsername] = useState(""); // Use 'Username' here
+  const [Username, setUsername] = useState(""); 
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
@@ -10,13 +10,12 @@ const Register = () => {
   const register = async (e) => {
     e.preventDefault();
   
-    // Debugging: Log the values of Username and password
     console.log("Username:", Username);
     console.log("Password:", password);
   
     try {
       const response = await axios.post('http://localhost:4001/register', {
-        Username, // Use 'Username' here
+        Username, 
         password
       });
   
@@ -27,8 +26,10 @@ const Register = () => {
         setError("Registration failed.");
       }
     } catch (error) {
+      console.error('Error registering user:', error.response); 
       setError("An error occurred while registering.");
     }
+    
   };
   
 

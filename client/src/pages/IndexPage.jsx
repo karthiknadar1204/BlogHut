@@ -8,8 +8,8 @@ const IndexPage = () => {
 
   useEffect(() => {
     axios.get('http://localhost:4001/post').then((response) => {
-      const fetchedPosts = response.data; // Use response.data to access the data
-      setPosts(fetchedPosts); // Update the posts state with the fetched data
+      const fetchedPosts = response.data; 
+      setPosts(fetchedPosts);
     });
   }, []);
 

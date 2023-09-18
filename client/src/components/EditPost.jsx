@@ -11,8 +11,8 @@ import { useEffect } from 'react';
 const EditPost = () => {
     const {id}=useParams();
     const navigate = useNavigate();
-    const [title, setTitle] = useState(''); // Initialize title state with an empty string
-    const [summary, setSummary] = useState(''); // Initialize summary state with an empty string
+    const [title, setTitle] = useState('');
+    const [summary, setSummary] = useState(''); 
     const [content, setContent] = useState('');
     const [files,setFiles]=useState('');
 
@@ -66,7 +66,6 @@ const EditPost = () => {
             if(response.ok){
                 // setRedirect(true)
             }
-            // Redirect the user to a different page, e.g., the post detail page
             navigate(`/post-details/${id}`);
         } catch (error) {
             console.error("Error updating post:", error);
@@ -74,11 +73,11 @@ const EditPost = () => {
     };
 
     const handleTitleChange = (e) => {
-        setTitle(e.target.value); // Update the title state when the input changes
+        setTitle(e.target.value);
       };
     
       const handleSummaryChange = (e) => {
-        setSummary(e.target.value); // Update the summary state when the input changes
+        setSummary(e.target.value);
       };
     
   return (

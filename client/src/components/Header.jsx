@@ -10,10 +10,8 @@ const Header = () => {
         const response = await axios.get('http://localhost:4001/profile', {
           withCredentials: true
         });
-        // Handle the response here
         console.log(response.data); // This should contain the cookies data
       } catch (error) {
-        // Handle errors
         console.error(error);
       }
     }

@@ -6,7 +6,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Use navigate from react-router-dom
+  const navigate = useNavigate();
 
   const login = async (e) => {
     e.preventDefault();
@@ -20,8 +20,7 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        // Redirect to a different page upon successful login
-        navigate('/'); // Redirect to the home page or any other page
+        navigate('/');
       } else {
         setError("Login failed.");
       }

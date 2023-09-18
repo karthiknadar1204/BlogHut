@@ -52,6 +52,10 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 app.post('/register', async (req, res) => {
   const { Username, password } = req.body;
 
+  if (!Username || !password) {
+    return res.status(400).json({ message: 'Username and password are required' });
+  }
+
   const existingUser = await User.findOne({ Username });
 
   if (existingUser) {
@@ -63,12 +67,13 @@ app.post('/register', async (req, res) => {
     const userDoc = new User({ Username, password: hashedPassword });
     await userDoc.save();
 
-    res.json(userDoc);
+    res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
     console.error('Error registering user:', error);
     res.status(500).json({ message: 'Error registering user' });
   }
 });
+
 
 
 //Login the user
@@ -116,7 +121,7 @@ app.get('/profile', (req, res) => {
     }
     res.json(info);
   });
-});
+}); 
 
 
 app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
@@ -190,7 +195,6 @@ app.put('/post',uploadMiddleware.single('file'), async (req, res)=>{
     content,
     cover:newPath ? newPath: postDoc.cover
   })
-
 
 })
 

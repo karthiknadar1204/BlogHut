@@ -11,8 +11,7 @@ const PostPage = () => {
 
   useEffect(() => {
     axios.get(`http://localhost:4001/post/${id}`).then((response) => {
-      // Assuming that the response contains the data for the post
-      setPostInfo(response.data); // Set the retrieved data to the postInfo state
+      setPostInfo(response.data); 
     });
   }, [id]);
   if(!postInfo){

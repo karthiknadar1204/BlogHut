@@ -7,17 +7,17 @@ import Editor from '../Editor';
 
 const CreatePost = () => {
   const navigate = useNavigate(); 
-  const [title, setTitle] = useState(''); // Initialize title state with an empty string
-  const [summary, setSummary] = useState(''); // Initialize summary state with an empty string
+  const [title, setTitle] = useState(''); 
+  const [summary, setSummary] = useState(''); 
   const [content, setContent] = useState('');
   const [files,setFiles]=useState('');
 
   const handleTitleChange = (e) => {
-    setTitle(e.target.value); // Update the title state when the input changes
+    setTitle(e.target.value); 
   };
 
   const handleSummaryChange = (e) => {
-    setSummary(e.target.value); // Update the summary state when the input changes
+    setSummary(e.target.value); 
   };
 
   // const modules = {
@@ -44,7 +44,7 @@ const CreatePost = () => {
     data.append('title', title);
     data.append('summary', summary);
     data.append('content', content);
-    data.append('file', files); // Make sure 'files' is not empty and contains the file data.
+    data.append('file', files);
     
   
     try {
@@ -58,7 +58,7 @@ const CreatePost = () => {
         navigate('/');
       }
 
-      // Handle the response here, e.g., show a success message or redirect
+
       console.log(await response.data);
     } catch (error) {
       // Handle errors here
